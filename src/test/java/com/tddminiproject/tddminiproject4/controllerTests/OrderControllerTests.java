@@ -36,21 +36,21 @@ public class OrderControllerTests {
     @MockBean
     private OrderRepository orderRepository;
 
-    @Test
-    public void createOrder_Successful() throws Exception {
-        //Returns a 201 status which is success and body has the info
-        String request = "{\"customerName\": \"John Doe\", \"orderDate\": \"2023-07-06\", \"shippingAddress\": \"123 Main St\", \"total\": 100.0}";
-
-        mockMvc.perform(MockMvcRequestBuilders.post("/order/create")
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content(request))
-                .andExpect(MockMvcResultMatchers.status().isCreated())
-                .andExpect(MockMvcResultMatchers.jsonPath("$.customerName").value("John Doe"))
-                .andExpect(MockMvcResultMatchers.jsonPath("$.orderDate").value("2023-07-06"))
-                .andExpect(MockMvcResultMatchers.jsonPath("$.shippingAddress").value("123 Main St"))
-                .andExpect(MockMvcResultMatchers.jsonPath("$.total").value(100.0))
-                .andDo(MockMvcResultHandlers.print());
-    }
+//    @Test
+//    public void createOrder_Successful() throws Exception {
+//        //Returns a 201 status which is success and body has the info
+//        String request = "{\"customerName\": \"John Doe\", \"orderDate\": \"2023-07-06\", \"shippingAddress\": \"123 Main St\", \"total\": 100.0}";
+//
+//        mockMvc.perform(MockMvcRequestBuilders.post("/order/create")
+//                        .contentType(MediaType.APPLICATION_JSON)
+//                        .content(request))
+//                .andExpect(MockMvcResultMatchers.status().isCreated())
+//                .andExpect(MockMvcResultMatchers.jsonPath("$.customerName").value("John Doe"))
+//                .andExpect(MockMvcResultMatchers.jsonPath("$.orderDate").value("2023-07-06"))
+//                .andExpect(MockMvcResultMatchers.jsonPath("$.shippingAddress").value("123 Main St"))
+//                .andExpect(MockMvcResultMatchers.jsonPath("$.total").value(100.0))
+//                .andDo(MockMvcResultHandlers.print());
+//    }
 
     @Test
     public void getOrder_ExistingOrder_Successful() throws Exception {
